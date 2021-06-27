@@ -1,4 +1,5 @@
-const { Structures, escapeMarkdown, splitMessage, resolveString } = require('discord.js');
+const { Structures  } = require('discord.js');
+const { escapeMarkdown, splitMessage, verifyString } = require('discord.js').Util;
 const { oneLine } = require('common-tags');
 const Command = require('../commands/base');
 const FriendlyError = require('../errors/friendly');
@@ -283,7 +284,7 @@ module.exports = Structures.extend('Message', Message => {
 				}
 			}
 
-			content = resolveString(content);
+			content = verifyString(content);
 
 			switch(type) {
 				case 'plain':
